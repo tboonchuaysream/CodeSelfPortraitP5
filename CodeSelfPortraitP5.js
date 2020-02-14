@@ -1,5 +1,14 @@
+/*
+@author Thanaphat Boonchuaysream (Tommy)
+
+Self-portrait coded in P5.js showing different emotions. Neutral, sad, and angry.
+Press 's' to show sad, click the eye to show angry, and don't do anything to show neutral.
+
+*/
+
 var state;
 var stateSad;
+var stateAngry;
 
 //tears
 var cryBox = 0;
@@ -42,12 +51,15 @@ function draw() {
   arc(423, 470, 70, 30, PI, 6);
   arc(577, 470, 70, 30, PI, 6);
 
+  //if you hold down s
   if (keyIsDown(83)) {
 
     state = sad();
-    //tears drop
-    cryBox = cryBox + 2;
-
+    //tears drop with for loop
+    for(i = 0; i < 2; i++){
+      cryBox++;
+    }
+      
   //check if mouse is on eye
   } else if ((((mouseX < 448 && mouseX > 398) || (mouseX < 602 && mouseX > 552)) && mouseY < 503 && mouseY > 473) && mouseIsPressed) {
 
